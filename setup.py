@@ -13,5 +13,5 @@ setup(
     ],
     include_package_data=True,
     extras_require={"dev": ["flake8", "black"], "test": ["flake8", "pytest"]},
-    entry_points={"console_scripts": ["create_stac_item=hls_cmr_stac.hls_cmr_stac:main", ]},
+    entry_points={"console_scripts": ["cmr_to_stac_item=hls_cmr_stac.hls_cmr_stac:main", ]},
 )
