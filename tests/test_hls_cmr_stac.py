@@ -11,6 +11,7 @@ def test_cmr_to_item_s30():
                                     "HLS.S30.T01LAH.2020097T222759.v1.5.xml")
     item = cmr_to_item(sentinel_cmr_xml)
     assert item["id"] == "HLS.S30.T01LAH.2020097T222759.v1.5"
+    assert item["properties"]["proj:epsg"] == 32701
     assert item["bbox"] == [-180.0, -11.223189, 180.0, -10.833754]
 
 

@@ -228,28 +228,19 @@ def add_assets(item, granule):
     item.add_asset("thumbnail", thumbnail_asset)
 
 
-def get_epsg(utmzone, min_lat, max_lat):
-    center_lat = (min_lat + max_lat) / 2.0
-    return int(('326' if center_lat > 0 else '327') + utmzone)
-
-
 def process_projection(item, granule):
     item.ext.enable("projection")
     for attribute in granule.AdditionalAttributes.AdditionalAttribute:
-        if attribute.Name == "HORIZONTAL_CS_CODE":
+        if attribute.Name == "MGRS_TILE_ID":
             value = attribute.Values.Value.cdata
-            epsg = int(value.split(":")[1])
+            lat_band = value[3]
+            # Case is important for ordinal comparison
+            if lat_band.casefold() > "m":
+                hemi = "326"
+            else:
+                hemi = "327"
+            epsg = int(hemi + value[0:2])
             item.ext.projection.epsg = epsg
-
-        if attribute.Name == "HORIZONTAL_CS_NAME":
-            try:
-                value = attribute.Values.Value[0].cdata
-                zone_string = value.split(",")[2]
-                epsg_code = zone_string[-2:]
-                epsg = get_epsg(epsg_code, item.bbox[1], item.bbox[3])
-                item.ext.projection.epsg = epsg
-            except AttributeError:
-                pass
 
 
 def process_view_geometry(item, granule):
