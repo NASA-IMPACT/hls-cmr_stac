@@ -131,7 +131,7 @@ sentinel_band_info = {
         "gsd": 30
     },
     "B12": {
-        "band": Band.create(name="B12", common_name="swir16", center_wavelength=2.22024, full_width_half_max=0.242),
+        "band": Band.create(name="B12", common_name="swir22", center_wavelength=2.22024, full_width_half_max=0.242),
         "gsd": 30
     },
     "Fmask": {
