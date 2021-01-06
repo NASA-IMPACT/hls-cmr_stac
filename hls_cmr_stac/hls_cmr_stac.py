@@ -215,7 +215,9 @@ def add_assets(item, granule):
         band_info = landsat_band_info
 
     for band_id, band_info in band_info.items():
-        band_url = "./{}.{}.TIF".format(item_id, band_id)
+        url_template = "https://lpdaac.earthdata.nasa.gov/" \
+            "lp-prod-protected/HLSS30.015/{}.{}.TIF"
+        band_url = url_template.format(item_id, band_id)
         asset = pystac.Asset(href=band_url, media_type=pystac.MediaType.COG)
         bands = [band_info["band"]]
         item.ext.eo.set_bands(bands, asset)
