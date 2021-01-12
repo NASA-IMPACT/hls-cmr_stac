@@ -13,6 +13,10 @@ def test_cmr_to_item_s30():
     assert item["id"] == "HLS.S30.T01LAH.2020097T222759.v1.5"
     assert item["properties"]["proj:epsg"] == 32701
     assert item["bbox"] == [-180.0, -11.223189, 180.0, -10.833754]
+    assert item["assets"]["B01"]["href"].split(".")[-1] == "tif"
+    assert item["assets"]["thumbnail"]["href"].split(".")[-1] == "jpg"
+    assert item["assets"]["B01"]["roles"][0] == "data"
+    assert item["assets"]["thumbnail"]["roles"][0] == "thumbnail"
 
 
 def test_cmr_to_item_l30():
@@ -22,3 +26,7 @@ def test_cmr_to_item_l30():
     assert item["id"] == "HLS.L30.39TVF.2020158.165.v1.5"
     assert item["properties"]["proj:epsg"] == 32639
     assert item["bbox"] == [49.800551, 40.556707, 51.117032, 41.551785]
+    assert item["assets"]["B01"]["href"].split(".")[-1] == "tif"
+    assert item["assets"]["thumbnail"]["href"].split(".")[-1] == "jpg"
+    assert item["assets"]["B01"]["roles"][0] == "data"
+    assert item["assets"]["thumbnail"]["roles"][0] == "thumbnail"

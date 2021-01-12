@@ -216,16 +216,22 @@ def add_assets(item, granule):
 
     for band_id, band_info in band_info.items():
         url_template = "https://lpdaac.earthdata.nasa.gov/" \
-            "lp-prod-protected/HLSS30.015/{}.{}.TIF"
+            "lp-prod-protected/HLSS30.015/{}.{}.tif"
         band_url = url_template.format(item_id, band_id)
-        asset = pystac.Asset(href=band_url, media_type=pystac.MediaType.COG)
+        asset = pystac.Asset(
+            href=band_url,
+            media_type=pystac.MediaType.COG,
+            roles=["data"]
+        )
         bands = [band_info["band"]]
         item.ext.eo.set_bands(bands, asset)
         item.add_asset(band_id, asset)
 
-    thumbnail_url = "./{}.JPG".format(item_id)
+    thumbnail_url = "./{}.jpg".format(item_id)
     thumbnail_asset = pystac.Asset(
-        href=thumbnail_url, media_type=pystac.MediaType.JPEG
+        href=thumbnail_url,
+        media_type=pystac.MediaType.JPEG,
+        roles=["thumbnail"]
     )
     item.add_asset("thumbnail", thumbnail_asset)
 
