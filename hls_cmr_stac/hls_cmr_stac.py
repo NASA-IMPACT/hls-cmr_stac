@@ -1,11 +1,11 @@
 """
 Generate STAC items for HLS products
 
-Usage: cmr_to_stac_item [OPTIONS] CMRXML OUTPUTFILE
+Usage: cmr_to_stac_item [OPTIONS] CMRXML OUTPUTFILE ENDPOINT VERSION
 
 
 Example:
-$ cmr_to_stac_item ./HLS.S30.T01LAH.2020097T222759.v1.5 ./stac_item.json
+$ cmr_to_stac_item ./HLS.S30.T01LAH.2020097T222759.v1.5 ./stac_item.json data.lpdaac.earthdatacloud.nasa.gov 020
 
 """
 import untangle
@@ -206,17 +206,23 @@ def process_eo(item, granule):
             item.ext.eo.cloud_cover = float(attribute.Values.Value.cdata)
 
 
-def add_assets(item, granule):
+def add_assets(item, granule, endpoint, version):
     item_id = granule.GranuleUR.cdata
     product = item_id.split(".")[1]
     if product == "S30":
         band_info = sentinel_band_info
+        url = f"https://{endpoint}/lp-prod-protected/HLSS30.{version}/"
+        jpg_url = f"https://{endpoint}/lp-prod-public/HLSS30.{version}/"
+
     if product == "L30":
         band_info = landsat_band_info
+        url = f"https://{endpoint}/lp-prod-protected/HLSL30.{version}/"
+        jpg_url = f"https://{endpoint}/lp-prod-public/HLSL30.{version}/"
+
+    url_template = url + "{}.{}.tif"
+    jpg_template = jpg_url + "{}.jpg"
 
     for band_id, band_info in band_info.items():
-        url_template = "https://lpdaac.earthdata.nasa.gov/" \
-            "lp-prod-protected/HLSS30.015/{}.{}.tif"
         band_url = url_template.format(item_id, band_id)
         asset = pystac.Asset(
             href=band_url,
@@ -227,7 +233,7 @@ def add_assets(item, granule):
         item.ext.eo.set_bands(bands, asset)
         item.add_asset(band_id, asset)
 
-    thumbnail_url = "./{}.jpg".format(item_id)
+    thumbnail_url = jpg_template.format(item_id)
     thumbnail_asset = pystac.Asset(
         href=thumbnail_url,
         media_type=pystac.MediaType.JPEG,
@@ -267,7 +273,7 @@ def process_scientific(item, granule):
             item.ext.scientific.doi = attribute.Values.Value.cdata
 
 
-def cmr_to_item(cmrxml):
+def cmr_to_item(cmrxml, endpoint, version):
     cmr = untangle.parse(cmrxml)
     granule = cmr.Granule
     item_id = granule.GranuleUR.cdata
@@ -286,7 +292,7 @@ def cmr_to_item(cmrxml):
 
     process_common_metadata(item, granule)
     process_eo(item, granule)
-    add_assets(item, granule)
+    add_assets(item, granule, endpoint, version)
     process_projection(item, granule)
     process_view_geometry(item, granule)
     # process_scientific(item, granule)
@@ -304,8 +310,16 @@ def cmr_to_item(cmrxml):
     "outputfile",
     type=click.Path(dir_okay=False, file_okay=True, writable=True),
 )
-def main(cmrxml, outputfile):
-    item = cmr_to_item(cmrxml)
+@click.argument(
+    "endpoint",
+    type=click.STRING,
+)
+@click.argument(
+    "version",
+    type=click.STRING,
+)
+def main(cmrxml, outputfile, endpoint, version):
+    item = cmr_to_item(cmrxml, endpoint, version)
     with open(outputfile, 'w') as outfile:
         json.dump(item, outfile)
 
