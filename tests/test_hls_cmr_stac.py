@@ -18,6 +18,9 @@ def test_cmr_to_item_s30():
     assert item["assets"]["thumbnail"]["href"] == "https://data.lpdaac." \
         "earthdatacloud.nasa.gov/lp-prod-public/HLSS30.015/" \
         "HLS.S30.T01LAH.2020097T222759.v1.5.jpg"
+    assert item["links"][0]["href"] == "https://data.lpdaac." \
+        "earthdatacloud.nasa.gov/lp-prod-public/HLSS30.015/" \
+        "HLS.S30.T01LAH.2020097T222759.v1.5_stac.json"
     assert item["assets"]["B01"]["roles"][0] == "data"
     assert item["assets"]["thumbnail"]["roles"][0] == "thumbnail"
 
@@ -34,5 +37,8 @@ def test_cmr_to_item_l30():
     assert item["assets"]["thumbnail"]["href"] == "https://data.lpdaac." \
         "earthdatacloud.nasa.gov/lp-prod-public/HLSL30.015/" \
         "HLS.L30.39TVF.2020158.165.v1.5.jpg"
+    assert item["links"][0]["href"] == "https://data.lpdaac." \
+        "earthdatacloud.nasa.gov/lp-prod-public/HLSL30.015/" \
+        "HLS.L30.39TVF.2020158.165.v1.5_stac.json"
     assert item["assets"]["B01"]["roles"][0] == "data"
     assert item["assets"]["thumbnail"]["roles"][0] == "thumbnail"

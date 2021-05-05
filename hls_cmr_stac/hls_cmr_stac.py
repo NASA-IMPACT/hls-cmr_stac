@@ -212,15 +212,14 @@ def add_assets(item, granule, endpoint, version):
     if product == "S30":
         band_info = sentinel_band_info
         url = f"https://{endpoint}/lp-prod-protected/HLSS30.{version}/"
-        jpg_url = f"https://{endpoint}/lp-prod-public/HLSS30.{version}/"
+        public_url = f"https://{endpoint}/lp-prod-public/HLSS30.{version}/"
 
     if product == "L30":
         band_info = landsat_band_info
         url = f"https://{endpoint}/lp-prod-protected/HLSL30.{version}/"
-        jpg_url = f"https://{endpoint}/lp-prod-public/HLSL30.{version}/"
+        public_url = f"https://{endpoint}/lp-prod-public/HLSL30.{version}/"
 
     url_template = url + "{}.{}.tif"
-    jpg_template = jpg_url + "{}.jpg"
 
     for band_id, band_info in band_info.items():
         band_url = url_template.format(item_id, band_id)
@@ -233,13 +232,14 @@ def add_assets(item, granule, endpoint, version):
         item.ext.eo.set_bands(bands, asset)
         item.add_asset(band_id, asset)
 
-    thumbnail_url = jpg_template.format(item_id)
+    thumbnail_url = f"{public_url}{item_id}.jpg"
     thumbnail_asset = pystac.Asset(
         href=thumbnail_url,
         media_type=pystac.MediaType.JPEG,
         roles=["thumbnail"]
     )
     item.add_asset("thumbnail", thumbnail_asset)
+    item.set_self_href(f"{public_url}{item_id}_stac.json")
 
 
 def process_projection(item, granule):
