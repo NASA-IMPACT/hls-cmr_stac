@@ -295,7 +295,7 @@ def cmr_to_item(cmrxml, endpoint, version):
     add_assets(item, granule, endpoint, version)
     process_projection(item, granule)
     process_view_geometry(item, granule)
-    # process_scientific(item, granule)
+    process_scientific(item, granule)
     item.validate()
     feature = item.to_dict()
     return feature

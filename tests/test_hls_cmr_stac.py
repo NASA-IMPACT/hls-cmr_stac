@@ -23,6 +23,7 @@ def test_cmr_to_item_s30():
         "HLS.S30.T01LAH.2020097T222759.v1.5_stac.json"
     assert item["assets"]["B01"]["roles"][0] == "data"
     assert item["assets"]["thumbnail"]["roles"][0] == "thumbnail"
+    assert item["properties"]["sci:doi"] == "10.5067/HLS/HLSS30.015"
 
 
 def test_cmr_to_item_l30():
@@ -42,3 +43,4 @@ def test_cmr_to_item_l30():
         "HLS.L30.39TVF.2020158.165.v1.5_stac.json"
     assert item["assets"]["B01"]["roles"][0] == "data"
     assert item["assets"]["thumbnail"]["roles"][0] == "thumbnail"
+    assert item["properties"]["sci:doi"] == "10.5067/HLS/HLSL30.015"
