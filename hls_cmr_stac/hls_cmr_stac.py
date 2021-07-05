@@ -211,13 +211,13 @@ def add_assets(item, granule, endpoint, version):
     product = item_id.split(".")[1]
     if product == "S30":
         band_info = sentinel_band_info
-        url = f"https://{endpoint}/lp-prod-protected/HLSS30.{version}/"
-        public_url = f"https://{endpoint}/lp-prod-public/HLSS30.{version}/"
+        url = f"https://{endpoint}/lp-prod-protected/HLSS30.{version}/{item_id}/"
+        public_url = f"https://{endpoint}/lp-prod-public/HLSS30.{version}/{item_id}/"
 
     if product == "L30":
         band_info = landsat_band_info
-        url = f"https://{endpoint}/lp-prod-protected/HLSL30.{version}/"
-        public_url = f"https://{endpoint}/lp-prod-public/HLSL30.{version}/"
+        url = f"https://{endpoint}/lp-prod-protected/HLSL30.{version}/{item_id}/"
+        public_url = f"https://{endpoint}/lp-prod-public/HLSL30.{version}/{item_id}/"
 
     url_template = url + "{}.{}.tif"
 
