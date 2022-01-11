@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import find_packages, setup
 
 setup(
     name="hls_cmr_stac",
@@ -6,12 +6,32 @@ setup(
     packages=find_packages(),
     install_requires=[
         "click~=7.1.0",
-        "pystac[validation]",
+        "pystac[validation]==1.1.0",
         "untangle",
         "geojson",
         "shapely",
     ],
     include_package_data=True,
-    extras_require={"dev": ["flake8", "black"], "test": ["flake8", "pytest"]},
-    entry_points={"console_scripts": ["cmr_to_stac_item=hls_cmr_stac.hls_cmr_stac:main", ]},
+    extras_require={
+        "test": [
+            "pytest",
+            "pytest-cov",
+            "black",
+            "flake8",
+            "isort",
+        ],
+        "dev": [
+            "pytest",
+            "black",
+            "flake8",
+            "isort",
+            "pre-commit",
+            "pre-commit-hooks",
+        ],
+    },
+    entry_points={
+        "console_scripts": [
+            "cmr_to_stac_item=hls_cmr_stac.hls_cmr_stac:main",
+        ]
+    },
 )
