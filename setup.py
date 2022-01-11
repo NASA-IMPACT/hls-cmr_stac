@@ -6,7 +6,7 @@ setup(
     packages=find_packages(),
     install_requires=[
         "click~=7.1.0",
-        "pystac[validation]==1.1.0",
+        "pystac[validation]==1.0.0rc2",
         "untangle",
         "geojson",
         "shapely",
