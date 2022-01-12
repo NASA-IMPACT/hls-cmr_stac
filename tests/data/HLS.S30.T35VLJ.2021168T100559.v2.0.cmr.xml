@@ -1,21 +1,21 @@
 <Granule>
-  <GranuleUR>HLS.S30.T01LAH.2020097T222759.v1.5</GranuleUR>
-  <InsertTime>2020-09-24T00:12:27.556927Z</InsertTime>
-  <LastUpdate>2020-09-24T00:12:27.556948Z</LastUpdate>
+  <GranuleUR>HLS.S30.T35VLJ.2021168T100559.v2.0</GranuleUR>
+  <InsertTime>2022-01-08T02:35:22.590022Z</InsertTime>
+  <LastUpdate>2022-01-08T02:35:22.590029Z</LastUpdate>
   <Collection>
-    <DataSetId>HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30 m V1.5</DataSetId>
+    <DataSetId>HLS Sentinel-2 Multi-spectral Instrument Surface Reflectance Daily Global 30m v2.0</DataSetId>
   </Collection>
   <DataGranule>
-    <SizeMBDataGranule>47265</SizeMBDataGranule>
-    <ProducerGranuleId>HLS.S30.T01LAH.2020097T222759</ProducerGranuleId>
+    <DataGranuleSizeInBytes>21351188</DataGranuleSizeInBytes>
+    <ProducerGranuleId>HLS.S30.T35VLJ.2021168T100559</ProducerGranuleId>
     <DayNightFlag>DAY</DayNightFlag>
-    <ProductionDateTime>2020-09-18T18:01:07.000000Z</ProductionDateTime>
-    <LocalVersionId>1.5</LocalVersionId>
+    <ProductionDateTime>2022-01-08T02:34:59.000000Z</ProductionDateTime>
+    <LocalVersionId>2.0</LocalVersionId>
   </DataGranule>
   <Temporal>
     <RangeDateTime>
-      <BeginningDateTime>2020-04-06T22:28:58.717040Z</BeginningDateTime>
-      <EndingDateTime>2020-04-06T22:28:58.717040Z</EndingDateTime>
+      <BeginningDateTime>2021-06-17T10:13:17.089940Z</BeginningDateTime>
+      <EndingDateTime>2021-06-17T10:13:17.089940Z</EndingDateTime>
     </RangeDateTime>
   </Temporal>
   <Spatial>
@@ -24,48 +24,20 @@
         <GPolygon>
           <Boundary>
             <Point>
-              <PointLongitude>-180.0</PointLongitude>
-              <PointLatitude>-10.840859466359879</PointLatitude>
+              <PointLongitude>23.15743429</PointLongitude>
+              <PointLatitude>62.17850011</PointLatitude>
             </Point>
             <Point>
-              <PointLongitude>-179.99720136</PointLongitude>
-              <PointLatitude>-10.84088971</PointLatitude>
+              <PointLongitude>23.73778725</PointLongitude>
+              <PointLatitude>62.19339089</PointLatitude>
             </Point>
             <Point>
-              <PointLongitude>-179.99979252</PointLongitude>
-              <PointLatitude>-10.85332933</PointLatitude>
+              <PointLongitude>23.2300555</PointLongitude>
+              <PointLatitude>61.62237083</PointLatitude>
             </Point>
             <Point>
-              <PointLongitude>-179.99951842</PointLongitude>
-              <PointLatitude>-10.853332</PointLatitude>
-            </Point>
-            <Point>
-              <PointLongitude>-180.0</PointLongitude>
-              <PointLatitude>-10.85551195129015</PointLatitude>
-            </Point>
-          </Boundary>
-        </GPolygon>
-        <GPolygon>
-          <Boundary>
-            <Point>
-              <PointLongitude>180.0</PointLongitude>
-              <PointLatitude>-10.85551195129015</PointLatitude>
-            </Point>
-            <Point>
-              <PointLongitude>179.91877534</PointLongitude>
-              <PointLatitude>-11.22318877</PointLatitude>
-            </Point>
-            <Point>
-              <PointLongitude>179.99993337</PointLongitude>
-              <PointLatitude>-10.85332665</PointLatitude>
-            </Point>
-            <Point>
-              <PointLongitude>179.34246202</PointLongitude>
-              <PointLatitude>-10.83375375</PointLatitude>
-            </Point>
-            <Point>
-              <PointLongitude>180.0</PointLongitude>
-              <PointLatitude>-10.840859466359879</PointLatitude>
+              <PointLongitude>23.226963</PointLongitude>
+              <PointLatitude>61.61985876</PointLatitude>
             </Point>
           </Boundary>
         </GPolygon>
@@ -86,67 +58,67 @@
     <AdditionalAttribute>
       <Name>PRODUCT_URI</Name>
       <Values>
-        <Value>S2B_MSIL1C_20200406T222759_N0209_R072_T01LAH_20200406T235448.SAFE</Value>
+        <Value>S2B_MSIL1C_20210617T100559_N0300_R022_T35VLJ_20210617T121634.SAFE</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>CLOUD_COVERAGE</Name>
       <Values>
-        <Value>74</Value>
+        <Value>53</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>MGRS_TILE_ID</Name>
       <Values>
-        <Value>01LAH</Value>
+        <Value>35VLJ</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>SPATIAL_COVERAGE</Name>
       <Values>
-        <Value>20</Value>
+        <Value>7</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>SPATIAL_RESOLUTION</Name>
       <Values>
-        <Value>30</Value>
+        <Value>30.0</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>HLS_PROCESSING_TIME</Name>
       <Values>
-        <Value>2020-09-18T18:01:07Z</Value>
+        <Value>2022-01-08T02:34:59Z</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>SENSING_TIME</Name>
       <Values>
-        <Value>2020-04-06T22:28:58.717043Z</Value>
+        <Value>2021-06-17T10:13:17.089943Z</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>HORIZONTAL_CS_CODE</Name>
       <Values>
-        <Value>EPSG:32701</Value>
+        <Value>EPSG:32635</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>HORIZONTAL_CS_NAME</Name>
       <Values>
-        <Value>WGS84 / UTM zone 01S</Value>
+        <Value>WGS84 / UTM zone 35N</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>ULX</Name>
       <Values>
-        <Value>99960.0</Value>
+        <Value>300000.0</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>ULY</Name>
       <Values>
-        <Value>-1200000.0</Value>
+        <Value>6900000.0</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
@@ -165,6 +137,12 @@
       <Name>REF_SCALE_FACTOR</Name>
       <Values>
         <Value>0.0001</Value>
+      </Values>
+    </AdditionalAttribute>
+    <AdditionalAttribute>
+      <Name>ANG_SCALE_FACTOR</Name>
+      <Values>
+        <Value>0.01</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
@@ -194,31 +172,31 @@
     <AdditionalAttribute>
       <Name>MEAN_SUN_AZIMUTH_ANGLE</Name>
       <Values>
-        <Value>53.75232359</Value>
+        <Value>174.79055913</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>MEAN_SUN_ZENITH_ANGLE</Name>
       <Values>
-        <Value>29.52538896</Value>
+        <Value>38.67355027</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>MEAN_VIEW_AZIMUTH_ANGLE</Name>
       <Values>
-        <Value>286.00542039</Value>
+        <Value>300.08037732</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>MEAN_VIEW_ZENITH_ANGLE</Name>
       <Values>
-        <Value>9.47196944</Value>
+        <Value>11.14101349</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>NBAR_SOLAR_ZENITH</Name>
       <Values>
-        <Value>32.43424711</Value>
+        <Value>38.87856785</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
@@ -303,19 +281,19 @@
     <AdditionalAttribute>
       <Name>ACCODE</Name>
       <Values>
-        <Value>LaSRC</Value>
+        <Value>LaSRC v3.1.0</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>PROCESSING_BASELINE</Name>
       <Values>
-        <Value>02.09</Value>
+        <Value>03.00</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
       <Name>IDENTIFIER_PRODUCT_DOI</Name>
       <Values>
-        <Value>10.5067/HLS/HLSS30.015</Value>
+        <Value>10.5067/HLS/HLSS30.002</Value>
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
