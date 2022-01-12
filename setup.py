@@ -10,6 +10,7 @@ setup(
         "untangle",
         "geojson",
         "shapely",
+        "rasterio==1.2.10",
     ],
     include_package_data=True,
     extras_require={

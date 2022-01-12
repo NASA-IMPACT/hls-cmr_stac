@@ -7,58 +7,60 @@ test_dir = os.path.join(current_dir, "data")
 
 
 def test_cmr_to_item_s30():
-    cmr_xml = os.path.join(test_dir, "HLS.S30.T01LAH.2020097T222759.v1.5.xml")
-    item = cmr_to_item(cmr_xml, "data.lpdaac.earthdatacloud.nasa.gov", "015")
-    assert item["id"] == "HLS.S30.T01LAH.2020097T222759.v1.5"
-    assert item["properties"]["proj:epsg"] == 32701
-    assert item["bbox"] == [-180.0, -11.223189, 180.0, -10.833754]
+    cmr_xml = os.path.join(test_dir, "HLS.S30.T35VLJ.2021168T100559.v2.0.cmr.xml")
+    item = cmr_to_item(cmr_xml, "data.lpdaac.earthdatacloud.nasa.gov", "020")
+    assert item["id"] == "HLS.S30.T35VLJ.2021168T100559.v2.0"
+    assert item["properties"]["proj:epsg"] == 32735
+    assert item["properties"]["proj:shape"] == [3660, 3660]
+    assert item["bbox"] == [23.157434, 61.619859, 23.737787, 62.193391]
     assert (
         item["assets"]["B01"]["href"] == "https://data.lpdaac."
-        "earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.015/"
-        "HLS.S30.T01LAH.2020097T222759.v1.5/"
-        "HLS.S30.T01LAH.2020097T222759.v1.5.B01.tif"
+        "earthdatacloud.nasa.gov/lp-prod-protected/HLSS30.020/"
+        "HLS.S30.T35VLJ.2021168T100559.v2.0/"
+        "HLS.S30.T35VLJ.2021168T100559.v2.0.B01.tif"
     )
     assert (
         item["assets"]["thumbnail"]["href"] == "https://data.lpdaac."
-        "earthdatacloud.nasa.gov/lp-prod-public/HLSS30.015/"
-        "HLS.S30.T01LAH.2020097T222759.v1.5/"
-        "HLS.S30.T01LAH.2020097T222759.v1.5.jpg"
+        "earthdatacloud.nasa.gov/lp-prod-public/HLSS30.020/"
+        "HLS.S30.T35VLJ.2021168T100559.v2.0/"
+        "HLS.S30.T35VLJ.2021168T100559.v2.0.jpg"
     )
     assert (
         item["links"][0]["href"] == "https://data.lpdaac."
-        "earthdatacloud.nasa.gov/lp-prod-public/HLSS30.015/"
-        "HLS.S30.T01LAH.2020097T222759.v1.5/"
-        "HLS.S30.T01LAH.2020097T222759.v1.5_stac.json"
+        "earthdatacloud.nasa.gov/lp-prod-public/HLSS30.020/"
+        "HLS.S30.T35VLJ.2021168T100559.v2.0/"
+        "HLS.S30.T35VLJ.2021168T100559.v2.0_stac.json"
     )
     assert item["assets"]["B01"]["roles"][0] == "data"
     assert item["assets"]["thumbnail"]["roles"][0] == "thumbnail"
-    assert item["properties"]["sci:doi"] == "10.5067/HLS/HLSS30.015"
+    assert item["properties"]["sci:doi"] == "10.5067/HLS/HLSS30.002"
 
 
 def test_cmr_to_item_l30():
-    cmr_xml = os.path.join(test_dir, "HLS.L30.39TVF.2020158.165.v1.5.xml")
-    item = cmr_to_item(cmr_xml, "data.lpdaac.earthdatacloud.nasa.gov", "015")
-    assert item["id"] == "HLS.L30.39TVF.2020158.165.v1.5"
-    assert item["properties"]["proj:epsg"] == 32639
-    assert item["bbox"] == [49.800551, 40.556707, 51.117032, 41.551785]
+    cmr_xml = os.path.join(test_dir, "HLS.L30.T19LBJ.2020239T144556.v2.0.cmr.xml")
+    item = cmr_to_item(cmr_xml, "data.lpdaac.earthdatacloud.nasa.gov", "020")
+    assert item["id"] == "HLS.L30.T19LBJ.2020239T144556.v2.0"
+    assert item["properties"]["proj:epsg"] == 32719
+    assert item["properties"]["proj:shape"] == [3660, 3660]
+    assert item["bbox"] == [-70.850164, -10.835104, -70.737014, -10.298666]
     assert (
         item["assets"]["B01"]["href"] == "https://data.lpdaac."
-        "earthdatacloud.nasa.gov/lp-prod-protected/HLSL30.015/"
-        "HLS.L30.39TVF.2020158.165.v1.5/"
-        "HLS.L30.39TVF.2020158.165.v1.5.B01.tif"
+        "earthdatacloud.nasa.gov/lp-prod-protected/HLSL30.020/"
+        "HLS.L30.T19LBJ.2020239T144556.v2.0/"
+        "HLS.L30.T19LBJ.2020239T144556.v2.0.B01.tif"
     )
     assert (
         item["assets"]["thumbnail"]["href"] == "https://data.lpdaac."
-        "earthdatacloud.nasa.gov/lp-prod-public/HLSL30.015/"
-        "HLS.L30.39TVF.2020158.165.v1.5/"
-        "HLS.L30.39TVF.2020158.165.v1.5.jpg"
+        "earthdatacloud.nasa.gov/lp-prod-public/HLSL30.020/"
+        "HLS.L30.T19LBJ.2020239T144556.v2.0/"
+        "HLS.L30.T19LBJ.2020239T144556.v2.0.jpg"
     )
     assert (
         item["links"][0]["href"] == "https://data.lpdaac."
-        "earthdatacloud.nasa.gov/lp-prod-public/HLSL30.015/"
-        "HLS.L30.39TVF.2020158.165.v1.5/"
-        "HLS.L30.39TVF.2020158.165.v1.5_stac.json"
+        "earthdatacloud.nasa.gov/lp-prod-public/HLSL30.020/"
+        "HLS.L30.T19LBJ.2020239T144556.v2.0/"
+        "HLS.L30.T19LBJ.2020239T144556.v2.0_stac.json"
     )
     assert item["assets"]["B01"]["roles"][0] == "data"
     assert item["assets"]["thumbnail"]["roles"][0] == "thumbnail"
-    assert item["properties"]["sci:doi"] == "10.5067/HLS/HLSL30.015"
+    assert item["properties"]["sci:doi"] == "10.5067/HLS/HLSL30.002"

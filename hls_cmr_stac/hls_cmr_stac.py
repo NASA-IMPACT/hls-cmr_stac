@@ -10,9 +10,11 @@ $ cmr_to_stac_item ./HLS.S30.T01LAH.2020097T222759.v1.5 ./stac_item.json data.lp
 """
 import datetime
 import json
+import os
 
 import click
 import pystac
+import rasterio
 import untangle
 from geojson import MultiPolygon
 from pystac.extensions.eo import Band, EOExtension
@@ -313,8 +315,12 @@ def add_assets(item, granule, endpoint, version):
     item.set_self_href(f"{public_url}{item_id}_stac.json")
 
 
-def process_projection(item, granule):
+def process_projection(item, granule, band1_file):
     proj_ext = ProjectionExtension.ext(item, add_if_missing=True)
+    with rasterio.open(band1_file) as band1_dataset:
+        proj_ext.transform = band1_dataset.transform
+        height, width = band1_dataset.shape
+        proj_ext.shape = [height, width]
     for attribute in granule.AdditionalAttributes.AdditionalAttribute:
         if attribute.Name == "MGRS_TILE_ID":
             value = attribute.Values.Value.cdata
@@ -345,6 +351,7 @@ def process_scientific(item, granule):
 
 
 def cmr_to_item(cmrxml, endpoint, version):
+    band1_file = f"{os.path.splitext(os.path.splitext(cmrxml)[0])[0]}.B01.tif"
     cmr = untangle.parse(cmrxml)
     granule = cmr.Granule
     item_id = granule.GranuleUR.cdata
@@ -365,7 +372,7 @@ def cmr_to_item(cmrxml, endpoint, version):
     process_common_metadata(item, granule)
     process_eo(item, granule)
     add_assets(item, granule, endpoint, version)
-    process_projection(item, granule)
+    process_projection(item, granule, band1_file)
     process_view_geometry(item, granule)
     process_scientific(item, granule)
     item.validate()
