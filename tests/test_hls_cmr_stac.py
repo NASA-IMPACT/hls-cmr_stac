@@ -10,7 +10,7 @@ def test_cmr_to_item_s30():
     cmr_xml = os.path.join(test_dir, "HLS.S30.T35VLJ.2021168T100559.v2.0.cmr.xml")
     item = cmr_to_item(cmr_xml, "data.lpdaac.earthdatacloud.nasa.gov", "020")
     assert item["id"] == "HLS.S30.T35VLJ.2021168T100559.v2.0"
-    assert item["properties"]["proj:epsg"] == 32735
+    assert item["properties"]["proj:epsg"] == 32635
     assert item["properties"]["proj:shape"] == [3660, 3660]
     assert item["bbox"] == [23.157434, 61.619859, 23.737787, 62.193391]
     assert (
@@ -40,7 +40,7 @@ def test_cmr_to_item_l30():
     cmr_xml = os.path.join(test_dir, "HLS.L30.T19LBJ.2020239T144556.v2.0.cmr.xml")
     item = cmr_to_item(cmr_xml, "data.lpdaac.earthdatacloud.nasa.gov", "020")
     assert item["id"] == "HLS.L30.T19LBJ.2020239T144556.v2.0"
-    assert item["properties"]["proj:epsg"] == 32719
+    assert item["properties"]["proj:epsg"] == 32619
     assert item["properties"]["proj:shape"] == [3660, 3660]
     assert item["bbox"] == [-70.850164, -10.835104, -70.737014, -10.298666]
     assert (
