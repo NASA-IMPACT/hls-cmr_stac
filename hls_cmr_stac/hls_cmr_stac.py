@@ -324,12 +324,7 @@ def process_projection(item, granule, band1_file):
     for attribute in granule.AdditionalAttributes.AdditionalAttribute:
         if attribute.Name == "MGRS_TILE_ID":
             value = attribute.Values.Value.cdata
-            lat_band = value[3]
-            # Case is important for ordinal comparison
-            if lat_band.casefold() > "m":
-                hemi = "326"
-            else:
-                hemi = "327"
+            hemi = "326"
             epsg = int(hemi + value[0:2])
             proj_ext.epsg = epsg
 
