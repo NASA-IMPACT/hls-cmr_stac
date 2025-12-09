@@ -2,15 +2,15 @@ from setuptools import find_packages, setup
 
 setup(
     name="hls_cmr_stac",
-    version="0.1",
+    version="1.8",
     packages=find_packages(),
     install_requires=[
-        "click~=7.1.0",
+        "click",
         "pystac[validation]==1.0.0rc2",
         "untangle",
         "geojson",
         "shapely",
-        "rasterio==1.2.10",
+        "rasterio",
     ],
     include_package_data=True,
     extras_require={
