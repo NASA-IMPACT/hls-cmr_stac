@@ -6,7 +6,9 @@ setup(
     packages=find_packages(),
     install_requires=[
         "click",
-        "pystac[validation]==1.0.0rc2",
+        # we can't use pystac>=1.12.0 because they did a major/breaking bump to
+        # the projection extension (v1.x to v2) that renamed proj:epsg -> proj:code.
+        "pystac[validation]>=1.0.0rc2,<1.12.0",
         "untangle",
         "geojson",
         "shapely",
