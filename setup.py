@@ -2,15 +2,17 @@ from setuptools import find_packages, setup
 
 setup(
     name="hls_cmr_stac",
-    version="0.1",
+    version="1.8",
     packages=find_packages(),
     install_requires=[
-        "click~=7.1.0",
-        "pystac[validation]==1.0.0rc2",
+        "click",
+        # we can't use pystac>=1.12.0 because they did a major/breaking bump to
+        # the projection extension (v1.x to v2) that renamed proj:epsg -> proj:code.
+        "pystac[validation]>=1.0.0rc2,<1.12.0",
         "untangle",
         "geojson",
         "shapely",
-        "rasterio==1.2.10",
+        "rasterio",
     ],
     include_package_data=True,
     extras_require={
