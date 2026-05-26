@@ -345,6 +345,20 @@ def process_scientific(item, granule):
             scientific_extension.doi = attribute.Values.Value.cdata
 
 
+def process_software_versions(item, granule):
+    software = {}
+    for attribute in granule.AdditionalAttributes.AdditionalAttribute:
+        if attribute.Name == "ACCODE":
+            software["Atmospheric Correction"] = attribute.Values.Value.cdata
+        if attribute.Name == "CLOUD_MASKING_CODE":
+            software["Cloud Masking"] = attribute.Values.Value.cdata
+    if software:
+        item.stac_extensions.append(
+            "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+        )
+        item.properties["processing:software"] = software
+
+
 def cmr_to_item(cmrxml, endpoint, version):
     band1_file = f"{os.path.splitext(os.path.splitext(cmrxml)[0])[0]}.B01.tif"
     cmr = untangle.parse(cmrxml)
@@ -370,6 +384,7 @@ def cmr_to_item(cmrxml, endpoint, version):
     process_projection(item, granule, band1_file)
     process_view_geometry(item, granule)
     process_scientific(item, granule)
+    process_software_versions(item, granule)
     item.validate()
     feature = item.to_dict()
     return feature

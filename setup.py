@@ -2,7 +2,7 @@ from setuptools import find_packages, setup
 
 setup(
     name="hls_cmr_stac",
-    version="1.8",
+    version="1.9",
     packages=find_packages(),
     install_requires=[
         "click",
