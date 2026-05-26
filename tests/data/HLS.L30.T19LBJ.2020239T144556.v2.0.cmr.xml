@@ -202,6 +202,12 @@
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
+      <Name>CLOUD_MASKING_CODE</Name>
+      <Values>
+        <Value>Fmask v4.7</Value>
+      </Values>
+    </AdditionalAttribute>
+    <AdditionalAttribute>
       <Name>TIRS_SSM_MODEL</Name>
       <Values>
         <Value>FINAL</Value>

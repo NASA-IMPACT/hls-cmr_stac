@@ -285,6 +285,12 @@
       </Values>
     </AdditionalAttribute>
     <AdditionalAttribute>
+      <Name>CLOUD_MASKING_CODE</Name>
+      <Values>
+        <Value>Fmask v4.7</Value>
+      </Values>
+    </AdditionalAttribute>
+    <AdditionalAttribute>
       <Name>PROCESSING_BASELINE</Name>
       <Values>
         <Value>03.00</Value>

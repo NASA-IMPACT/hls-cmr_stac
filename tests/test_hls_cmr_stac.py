@@ -34,6 +34,14 @@ def test_cmr_to_item_s30():
     assert item["assets"]["B01"]["roles"][0] == "data"
     assert item["assets"]["thumbnail"]["roles"][0] == "thumbnail"
     assert item["properties"]["sci:doi"] == "10.5067/HLS/HLSS30.002"
+    assert item["properties"]["processing:software"] == {
+        "Atmospheric Correction": "LaSRC v3.1.0",
+        "Cloud Masking": "Fmask v4.7",
+    }
+    assert (
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+        in item["stac_extensions"]
+    )
 
 
 def test_cmr_to_item_l30():
@@ -64,3 +72,11 @@ def test_cmr_to_item_l30():
     assert item["assets"]["B01"]["roles"][0] == "data"
     assert item["assets"]["thumbnail"]["roles"][0] == "thumbnail"
     assert item["properties"]["sci:doi"] == "10.5067/HLS/HLSL30.002"
+    assert item["properties"]["processing:software"] == {
+        "Atmospheric Correction": "LaSRC v3.0.5",
+        "Cloud Masking": "Fmask v4.7",
+    }
+    assert (
+        "https://stac-extensions.github.io/processing/v1.2.0/schema.json"
+        in item["stac_extensions"]
+    )
